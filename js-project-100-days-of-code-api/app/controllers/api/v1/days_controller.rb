@@ -26,6 +26,7 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def destroy
+        @day = Day.find(day_params[:id]).destroy
     end
 
     private
