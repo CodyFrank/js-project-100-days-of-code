@@ -16,10 +16,13 @@ class Api::V1::DaysController < ApplicationController
         end
     end
 
-    def edit
-    end
-
     def update
+        @day = Day.find(day_params[:id])
+        if @day.update(day_params)
+            #render some JSON here
+        else
+            #throw some error here
+        end
     end
 
     def destroy
