@@ -1,16 +1,18 @@
 class Api::V1::DaysController < ApplicationController
     def index
         @days = Day.all
+        render json: DaySerializer.new(@days)
     end
 
     def show
         @day = Day.find(day_params[:id])
+        render json: DaySerializer.new(@day)
     end
 
     def create
         @day = Day.new(day_params)
         if @day.save
-            #render some JSON here
+            render json: DaySerializer.new(@day)
         else
             #throw some error here
         end
@@ -19,7 +21,7 @@ class Api::V1::DaysController < ApplicationController
     def update
         @day = Day.find(day_params[:id])
         if @day.update(day_params)
-            #render some JSON here
+            render json: DaySerializer.new(@day)
         else
             #throw some error here
         end
@@ -27,6 +29,7 @@ class Api::V1::DaysController < ApplicationController
 
     def destroy
         @day = Day.find(day_params[:id]).destroy
+        render json: {dayId: @day.id}
     end
 
     private
