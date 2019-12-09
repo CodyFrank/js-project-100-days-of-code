@@ -20,4 +20,10 @@ class Api::V1::ChallengesController < ApplicationController
     def destroy
     end
 
+    private
+
+    def challenge_params
+        params.require(:challenge).permit(:question, :solution, :description)
+    end
+
 end
