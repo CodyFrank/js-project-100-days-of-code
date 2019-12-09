@@ -8,6 +8,12 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def create
+        @day = Day.new(day_params)
+        if @day.save
+            #render some JSON here
+        else
+            #throw some error here
+        end
     end
 
     def edit
