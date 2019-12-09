@@ -1,11 +1,10 @@
 class Api::V1::DaysController < ApplicationController
     def index
+        @days = Day.all
     end
 
     def show
-    end
-
-    def new
+        @day = Day.find(day_params[:id])
     end
 
     def create
@@ -23,7 +22,7 @@ class Api::V1::DaysController < ApplicationController
     private
 
     def day_params
-        params.require(:day).permit(:date)
+        params.require(:day).permit(:id, :date)
     end
 
 end
