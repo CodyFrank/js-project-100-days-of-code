@@ -1,3 +1,3 @@
 class Challenge < ApplicationRecord
-    belongs_too :day
+    belongs_to :day
 end
