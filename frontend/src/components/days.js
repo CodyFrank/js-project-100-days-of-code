@@ -7,15 +7,19 @@ class Days{
     }
 
     fetchAndLoadDays(){
-        this.adapter.getDays()
-        .then(days => days.data.forEach(day => this.days.push(day)))
+        this.adapter
+        .getDays()
+        .then(days => {
+            console.log(days)
+            // console.log(this.days)
+        })
         .then(() => this.render())
     }
 
     render(){
         const container = document.querySelector('div.container')
         const div = document.createElement('div')
-        div.innerHTML = `<h1>Render activated</h1>`
+        div.innerHTML = `<h1>${this.days}</h1>`
         container.appendChild(div)
     }
 }
