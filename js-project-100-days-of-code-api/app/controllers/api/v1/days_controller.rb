@@ -14,7 +14,7 @@ class Api::V1::DaysController < ApplicationController
         if day.save
             render json: day
         else
-            #throw some error here
+            render json: {message: "Creating that day failed"}
         end
     end
 
@@ -23,13 +23,16 @@ class Api::V1::DaysController < ApplicationController
         if day.update(params)
             render json: day
         else
-            #throw some error here
+            render json: {message: "Cannot update that Day"}
         end
     end
 
     def destroy
-        @day = Day.find(params[:id]).destroy
-        render json: {dayId: @day.id}
+        if day = Day.find(params[:id]).destroy
+            render json: {dayId: day.id}
+        else
+            render json: {message: "Cannot delete that Day"}
+        end
     end
 
     private
