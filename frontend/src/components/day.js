@@ -1,6 +1,6 @@
 class Day{
     constructor(dayJSON){
-        this.id = dayJSON.id
-        this.date = dayJSON.date
+        this.id = dayJSON
+        this.date = dayJSON
     }
 }
