@@ -1,12 +1,12 @@
 class Api::V1::DaysController < ApplicationController
     def index
         days = Day.all
-        render json: days
+        render json: days, only: [:id, :date]
     end
 
     def show
         if day = Day.find_by(id: params[:id])
-            render json: day
+            render json: day, only: [:id, :date]
         else
             render json: {message: "Cannot find a Day with that ID"}
         end
@@ -15,7 +15,7 @@ class Api::V1::DaysController < ApplicationController
     def create
         day = Day.new(params)
         if day.save
-            render json: day
+            render json: day, only: [:id, :date]
         else
             render json: {message: "Creating that day failed"}
         end
@@ -24,7 +24,7 @@ class Api::V1::DaysController < ApplicationController
     def update
         day = Day.find_by(id: params[:id])
         if day.update(params)
-            render json: day
+            render json: day, only: [:id, :date]
         else
             render json: {message: "Cannot update that Day"}
         end
