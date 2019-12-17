@@ -5,8 +5,11 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def show
-        day = Day.find(params[:id])
-        render json: day
+        if day = Day.find_by(id: params[:id])
+            render json: day
+        else
+            render json: {message: "Cannot find a Day with that ID"}
+        end
     end
 
     def create
@@ -19,7 +22,7 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def update
-        day = Day.find(params[:id])
+        day = Day.find_by(id: params[:id])
         if day.update(params)
             render json: day
         else
@@ -28,13 +31,12 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def destroy
-        if day = Day.find(params[:id]).destroy
+        if day = Day.find_by(id: params[:id]).destroy
             render json: {dayId: day.id}
         else
             render json: {message: "Cannot delete that Day"}
         end
     end
 
-    private
 
 end
