@@ -16,11 +16,11 @@ class Days{
     }
 
     render(){
-        console.log(this.days)
-        const container = document.querySelector('div.container')
+        const daysString = this.days.map(day => `<div class="day-container"><h3>Date: ${day.date} </h3></div>`).join("")
+        const dayscontainer = document.querySelector('div.days-container')
         const div = document.createElement('div')
-        div.innerHTML = `<h1>${"rendering..."}</h1>`
-        container.appendChild(div)
+        div.innerHTML = daysString
+        dayscontainer.appendChild(div)
     }
 }
 
