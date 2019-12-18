@@ -5,9 +5,8 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def show
-        puts params
         if day = Day.find_by(id: params[:id])
-            render json: day, only: [:id, :date]
+            render json: day
         else
             render json: {message: "Cannot find a Day with that ID"}
         end
@@ -44,6 +43,10 @@ class Api::V1::DaysController < ApplicationController
     def day_params
         params.require(:days).permit(:id, :date)
     end
+
+    # def except_options
+    #     [:created_At]
+    # end
 
 
 end
