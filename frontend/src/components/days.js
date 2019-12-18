@@ -20,11 +20,7 @@ class Days{
     }
 
     render(){
-        const daysString = this.days.map(day => `<h3>Date: ${day.date} </h3>`).join("")
-        const div = document.createElement('div')
-        div.setAttribute('class', 'day-container')
-        div.innerHTML = daysString
-        this.daysContainer.appendChild(div)
+        this.days.map(day =>  this.daysContainer.appendChild(day.renderDiv()))
     }
 }
 
