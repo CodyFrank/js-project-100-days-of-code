@@ -2,8 +2,12 @@ class Days{
     constructor(){
         this.days = []
         this.adapter = new DaysAdapter()
-        // this.bindEventListeners()
+        this.initBindingsAndEventListeners()
         this.fetchAndLoadDays()
+    }
+
+    initBindingsAndEventListeners(){
+        this.daysContainer = document.querySelector('div.days-container')
     }
 
     fetchAndLoadDays(){
@@ -16,11 +20,11 @@ class Days{
     }
 
     render(){
-        const daysString = this.days.map(day => `<div class="day-container"><h3>Date: ${day.date} </h3></div>`).join("")
-        const dayscontainer = document.querySelector('div.days-container')
+        const daysString = this.days.map(day => `<h3>Date: ${day.date} </h3>`).join("")
         const div = document.createElement('div')
+        div.setAttribute('class', 'day-container')
         div.innerHTML = daysString
-        dayscontainer.appendChild(div)
+        this.daysContainer.appendChild(div)
     }
 }
 
