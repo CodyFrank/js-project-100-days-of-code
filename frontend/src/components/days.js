@@ -10,16 +10,16 @@ class Days{
         this.adapter
         .getDays()
         .then(days => {
-            console.log(days)
-            // console.log(this.days)
+            days.forEach(day => this.days.push(new Day(day)))
         })
         .then(() => this.render())
     }
 
     render(){
+        console.log(this.days)
         const container = document.querySelector('div.container')
         const div = document.createElement('div')
-        div.innerHTML = `<h1>${this.days}</h1>`
+        div.innerHTML = `<h1>${"rendering..."}</h1>`
         container.appendChild(div)
     }
 }
