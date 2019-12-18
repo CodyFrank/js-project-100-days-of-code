@@ -5,6 +5,7 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def show
+        puts params
         if day = Day.find_by(id: params[:id])
             render json: day, only: [:id, :date]
         else
@@ -13,7 +14,7 @@ class Api::V1::DaysController < ApplicationController
     end
 
     def create
-        day = Day.new(params)
+        day = Day.new(day_params)
         if day.save
             render json: day, only: [:id, :date]
         else
@@ -23,7 +24,7 @@ class Api::V1::DaysController < ApplicationController
 
     def update
         day = Day.find_by(id: params[:id])
-        if day.update(params)
+        if day.update(day_params)
             render json: day, only: [:id, :date]
         else
             render json: {message: "Cannot update that Day"}
@@ -36,6 +37,12 @@ class Api::V1::DaysController < ApplicationController
         else
             render json: {message: "Cannot delete that Day"}
         end
+    end
+
+    private
+
+    def day_params
+        params.require(:days).permit(:id, :date)
     end
 
 
