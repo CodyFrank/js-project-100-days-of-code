@@ -20,7 +20,8 @@ class Days{
     }
 
     render(){
-        this.days.map(day =>  this.daysContainer.appendChild(day.renderDiv()))
+        const div = this.days.map(day => day.renderDiv())
+        this.daysContainer.appendChild(div)
     }
 }
 
