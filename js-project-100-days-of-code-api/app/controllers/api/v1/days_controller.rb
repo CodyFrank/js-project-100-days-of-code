@@ -6,7 +6,7 @@ class Api::V1::DaysController < ApplicationController
 
     def show
         if day = Day.find_by(id: params[:id])
-            render json: day
+            render json: day.to_json(:include => {:challenges => {:except => excluded_options}}, :except => excluded_options)
         else
             render json: {message: "Cannot find a Day with that ID"}
         end
@@ -44,9 +44,9 @@ class Api::V1::DaysController < ApplicationController
         params.require(:days).permit(:id, :date)
     end
 
-    # def except_options
-    #     [:created_At]
-    # end
+    def excluded_options
+        [:created_at, :updated_at]
+    end
 
 
 end
