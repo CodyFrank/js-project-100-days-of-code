@@ -13,7 +13,9 @@ class Days{
 
     createDay(e){
         e.preventDefault()
-        this.adapter.createDay(this.newDate()).then(day => console.log(day))
+        this.adapter.createDay(this.newDate())
+        .then(day => this.days.push(new Day(day)))
+        this.render()
     }
 
     newDate(){

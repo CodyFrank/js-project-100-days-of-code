@@ -9,16 +9,16 @@ class DaysAdapter {
     }
 
     createDay(value){
-        const date = {
-            body: value
+        
+        const day = {
+            date: value
         }
-
         return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({date})
+            body: JSON.stringify({ day })
         }).then(res => res.json())
     }
 
