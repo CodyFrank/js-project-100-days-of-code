@@ -8,12 +8,27 @@ class Days{
 
     initBindingsAndEventListeners(){
         this.dayButton = document.getElementById("new-day-button")
-        this.dayButton.addEventListener('click', (e) => this.createDay(e))
+        this.dayButton.addEventListener('click', this.createDay.bind(this))
     }
 
     createDay(e){
         e.preventDefault()
-        console.log("a new day is being created")
+        // this.adapter.createDay(this.newDate())
+        console.log(this.newDate())
+    }
+
+    newDate(){
+        const date = new Date()
+        const dd = date.getDate()
+        if (dd < 10){
+            dd = "0" + dd
+        }
+        const mm = date.getMonth() + 1
+        if (mm < 10){
+            mm = "0" + mm
+        }
+        const year = date.getFullYear()
+        return `${mm}/${dd}/${year}`
     }
 
     fetchAndLoadDays(){
