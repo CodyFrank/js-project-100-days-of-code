@@ -7,7 +7,13 @@ class Days{
     }
 
     initBindingsAndEventListeners(){
-        this.daysContainer = document.querySelector('div.days-container')
+        this.dayButton = document.getElementById("new-day-button")
+        this.dayButton.addEventListener('click', (e) => this.createDay(e))
+    }
+
+    createDay(e){
+        e.preventDefault()
+        console.log("a new day is being created")
     }
 
     fetchAndLoadDays(){
@@ -20,8 +26,7 @@ class Days{
     }
 
     render(){
-        const div = this.days.map(day => day.renderDiv())
-        this.daysContainer.appendChild(div)
+        this.days.map(day => day.renderDay())
     }
 }
 

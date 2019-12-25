@@ -4,12 +4,17 @@ class Day{
         this.date = dayJSON.date
         this.challenges = []
         dayJSON.challenges.forEach(c => this.challenges.push(c))
+        this.initBindingsAndEventListeners()
     }
 
-    renderDiv(){
-        console.log("renderDiv has been called")
+    initBindingsAndEventListeners(){
+        this.daysContainer = document.querySelector('div.days-container')
+    }
+
+    renderDay(){
         const div = document.createElement('div')
         div.setAttribute('class', 'day-container')
-        div.innerHTML = `<h3>Date: ${this.date} </h3>`  
+        div.innerHTML = `<h3>Date: ${this.date}</h3>`
+        this.daysContainer.appendChild(div)  
     }
 }
