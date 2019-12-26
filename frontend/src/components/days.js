@@ -7,6 +7,7 @@ class Days{
     }
 
     initBindingsAndEventListeners(){
+        this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.dayButton.addEventListener('click', this.createDay.bind(this))
     }
@@ -42,7 +43,8 @@ class Days{
     }
 
     render(){
-        this.days.map(day => day.renderDay())
+        console.log(this.daysContainer)
+        this.daysContainer.innerHTML = this.days.map(day => day.renderDay()).join("")
     }
 }
 

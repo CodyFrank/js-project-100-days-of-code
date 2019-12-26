@@ -12,9 +12,7 @@ class Day{
     }
 
     renderDay(){
-        const div = document.createElement('div')
-        div.setAttribute('class', 'day-container')
-        div.innerHTML = `<h3>Date: ${this.date}</h3>`
-        this.daysContainer.appendChild(div)  
+        return `<div class='day-container'><h3>Date: ${this.date}</h3></div>`
     }
 }
+
