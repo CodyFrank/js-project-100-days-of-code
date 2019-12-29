@@ -24,8 +24,6 @@ class Days{
         const id = div.dataset.id
         div.contentEditable = false
         div.classList.remove("editable")
-        console.log(newValue)
-        console.log(id)
         this.adapter.updateDay(newValue, id)
     }
 
@@ -34,11 +32,10 @@ class Days{
         div.contentEditable = true
         div.focus()
         div.classList.add("editable")
-        this.renderDeleteButton(div)
+        this.renderDeleteButton(div.parentElement)
     }
 
     renderDeleteButton(node){
-        console.log(this)
         node.innerHTML = node.innerHTML + "<button contenteditable='false' id='delete-button'>Delete</button>"
     }
 
@@ -73,7 +70,6 @@ class Days{
     }
 
     render(){
-        console.log(this.daysContainer)
         this.daysContainer.innerHTML = this.days.map(day => day.renderDay()).join("")
     }
 }
