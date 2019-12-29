@@ -20,6 +20,8 @@ class Days{
         div.contentEditable = false
         div.classList.remove("editable")
         const newValue = div.innerHTML
+        const id = div.dataset.id
+        console.log(newValue)
         this.adapter.updateDay(newValue, id)
     }
 
