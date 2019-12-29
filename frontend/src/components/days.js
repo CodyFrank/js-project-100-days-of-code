@@ -16,6 +16,7 @@ class Days{
     handleDayClick(e){
         const div = e.target
         div.contentEditable = true
+        div.classList.add("editable")
     }
 
     createDay(e){

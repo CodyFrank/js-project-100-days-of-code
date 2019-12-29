@@ -1,3 +1,18 @@
 body {
     background-color: rgb(158, 158, 158);
 }
+
+.container {
+  width: 960px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.day-container {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.editable {
+    border: 1px dashed black;
+}
