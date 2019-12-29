@@ -7,6 +7,7 @@ class Days{
     }
 
     initBindingsAndEventListeners(){
+
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.body = document.querySelector("body")
@@ -16,12 +17,15 @@ class Days{
     }
 
     updateDay(e){
+        const deleteButton = document.getElementById('delete-button')
+        deleteButton.remove()
         const div = e.target
+        const newValue = div.innerText
+        const id = div.dataset.id
         div.contentEditable = false
         div.classList.remove("editable")
-        const newValue = div.innerHTML
-        const id = div.dataset.id
         console.log(newValue)
+        console.log(id)
         this.adapter.updateDay(newValue, id)
     }
 
@@ -30,6 +34,12 @@ class Days{
         div.contentEditable = true
         div.focus()
         div.classList.add("editable")
+        this.renderDeleteButton(div)
+    }
+
+    renderDeleteButton(node){
+        console.log(this)
+        node.innerHTML = node.innerHTML + "<button contenteditable='false' id='delete-button'>Delete</button>"
     }
 
     createDay(e){
