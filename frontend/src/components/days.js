@@ -19,6 +19,8 @@ class Days{
         const div = e.target
         div.contentEditable = false
         div.classList.remove("editable")
+        const newValue = div.innerHTML
+        this.adapter.updateDay(newValue, id)
     }
 
     handleDayClick(e){

@@ -22,4 +22,18 @@ class DaysAdapter {
         }).then(res => res.json())
     }
 
+    updateDay(value, id){
+                
+        const day = {
+            date: value
+        }
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ day })
+        }).then(res => res.json())
+    }
+
 }
