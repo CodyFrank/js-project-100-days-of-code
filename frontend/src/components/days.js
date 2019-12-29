@@ -15,8 +15,10 @@ class Days{
         this.body.addEventListener('blur', this.updateDay.bind(this), true)
     }
 
-    updateDay(){
-        console.log("updateing day")
+    updateDay(e){
+        const div = e.target
+        div.contentEditable = false
+        div.classList.remove("editable")
     }
 
     handleDayClick(e){
