@@ -9,8 +9,14 @@ class Days{
     initBindingsAndEventListeners(){
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
+        this.body = document.querySelector("body")
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
+        this.body.addEventListener('blur', this.updateDay.bind(this), true)
+    }
+
+    updateDay(){
+        console.log("updateing day")
     }
 
     handleDayClick(e){
