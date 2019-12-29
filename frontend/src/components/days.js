@@ -13,8 +13,9 @@ class Days{
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
     }
 
-    handleDayClick(){
-        console.log("double clicked")
+    handleDayClick(e){
+        const div = e.target
+        div.contentEditable = true
     }
 
     createDay(e){
