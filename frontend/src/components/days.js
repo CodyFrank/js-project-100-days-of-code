@@ -10,7 +10,11 @@ class Days{
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.dayButton.addEventListener('click', this.createDay.bind(this))
-        this.daysContainer.addEventListener('dblclick', () => console.log('double clicked'))
+        this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
+    }
+
+    handleDayClick(){
+        console.log("double clicked")
     }
 
     createDay(e){
