@@ -2,19 +2,26 @@ class Days{
     constructor(){
         this.days = []
         this.adapter = new DaysAdapter()
-        this.initBindingsAndEventListeners()
         this.fetchAndLoadDays()
+        this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
-
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.body = document.querySelector("body")
+        this.deleteButton = document.getElementById('delete-button')
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
         this.body.addEventListener('blur', this.updateDay.bind(this), true)
+        this.deleteButton.addEventListener('click', this.deleteDay.bind(this))
     }
+
+    deleteDay(e){
+        e.preventDefault
+        console.log("deleteing day")
+    }
+
 
     updateDay(e){
         const deleteButton = document.getElementById('delete-button')
@@ -32,11 +39,11 @@ class Days{
         div.contentEditable = true
         div.focus()
         div.classList.add("editable")
-        this.renderDeleteButton(div.parentElement)
+        this.renderDeleteButton(div)
     }
 
     renderDeleteButton(node){
-        node.innerHTML = node.innerHTML + "<button contenteditable='false' id='delete-button'>Delete</button>"
+        node.innerHTML = node.innerHTML + "<button id='delete-button'>Delete</button>"
     }
 
     createDay(e){

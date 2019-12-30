@@ -12,7 +12,7 @@ class Day{
     }
 
     renderDay(){
-        return `<div class='day-container'><div class="date"><h3 data-id='${this.id}'>${this.date}</h3></div></div>`
+        return `<h3 data-id='${this.id}'>${this.date}</h3>`
     }
 }
 
