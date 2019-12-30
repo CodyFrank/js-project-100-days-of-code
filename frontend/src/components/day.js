@@ -12,7 +12,7 @@ class Day{
     }
 
     renderDay(){
-        return `<button class=class="collapsible" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
+        return `<button class="collapsible" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
         <div class="challenges">
           <p>put a challenge here</p>
           <p>put a solution here</p>
