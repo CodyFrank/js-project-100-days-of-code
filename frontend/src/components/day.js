@@ -12,7 +12,13 @@ class Day{
     }
 
     renderDay(){
-        return `<div class='day-container'><h3 data-id='${this.id}'>${this.date}</h3></div><button id='delete-button'>Delete</button>`
+        return `<button class=class="collapsible" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
+        <div class="challenges">
+          <p>put a challenge here</p>
+          <p>put a solution here</p>
+          <p>put a description here</p>
+          <button id='delete-button' data-id=${this.id}>Delete</button>
+        </div>`
     }
 }
 

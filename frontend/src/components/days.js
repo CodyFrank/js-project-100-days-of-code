@@ -14,7 +14,6 @@ class Days{
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
         this.body.addEventListener('blur', this.updateDay.bind(this), true)
-        this.deleteButton.addEventListener('click', this.deleteDay.bind(this))
     }
 
     deleteDay(e){
@@ -24,8 +23,6 @@ class Days{
 
 
     updateDay(e){
-        // const deleteButton = document.getElementById('delete-button')
-        // deleteButton.remove()
         const div = e.target
         const newValue = div.innerText
         const id = div.dataset.id
@@ -39,12 +36,9 @@ class Days{
         div.contentEditable = true
         div.focus()
         div.classList.add("editable")
-        // this.renderDeleteButton(div)
     }
 
-    // renderDeleteButton(node){
-    //     node.innerHTML = node.innerHTML + "<button id='delete-button'>Delete</button>"
-    // }
+
 
     createDay(e){
         e.preventDefault()
