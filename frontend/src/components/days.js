@@ -10,7 +10,6 @@ class Days{
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.body = document.querySelector("body")
-        this.deleteButton = document.getElementById('delete-button')
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
         this.body.addEventListener('blur', this.updateDay.bind(this), true)
@@ -18,9 +17,22 @@ class Days{
 
     deleteDay(e){
         e.preventDefault
-        console.log("deleteing day")
     }
 
+    renderDeleteEventListeners(){
+        const deleteButtons = document.querySelectorAll('.delete-button')
+        let i
+        for (i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener("click", function(e) {
+                e.preventDefault()
+                this.handleDeleteClick()
+            })
+        }
+    }
+
+    handleDeleteClick(){
+
+    }
 
     updateDay(e){
         const div = e.target
@@ -78,7 +90,7 @@ class Days{
         for (i = 0; i < coll.length; i++) {
           coll[i].addEventListener("click", function() {
             this.classList.toggle("active")
-            var content = this.nextElementSibling
+            let content = this.nextElementSibling
             if (content.style.maxHeight){
               content.style.maxHeight = null
             } else {
@@ -86,6 +98,9 @@ class Days{
             }
           })
         }
+
+        this.renderDeleteEventListeners()
+
     }
 
 

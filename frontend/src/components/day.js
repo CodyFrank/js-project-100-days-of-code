@@ -17,7 +17,7 @@ class Day{
           <p>put a challenge here</p>
           <p>put a solution here</p>
           <p>put a description here</p>
-          <button id='delete-button' data-id=${this.id}>Delete</button>
+          <button class='delete-button' data-id=${this.id}>Delete</button>
         </div>`
     }
 }
