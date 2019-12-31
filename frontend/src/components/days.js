@@ -10,6 +10,7 @@ class Days{
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.body = document.querySelector("body")
+        this.boundRender = this.render.bind(this)
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
         this.body.addEventListener('blur', this.updateDay.bind(this), true)
@@ -25,13 +26,9 @@ class Days{
         for (i = 0; i < deleteButtons.length; i++) {
             deleteButtons[i].addEventListener("click", function(e) {
                 e.preventDefault()
-                this.handleDeleteClick()
-            })
+                console.log(this.adapter)
+            }.bind(this))
         }
-    }
-
-    handleDeleteClick(){
-
     }
 
     updateDay(e){
@@ -56,7 +53,7 @@ class Days{
         e.preventDefault()
         this.adapter.createDay(this.newDate())
         .then(day => this.days.push(new Day(day)))
-        this.render()
+        this.boundRender()
     }
 
     newDate(){
@@ -79,7 +76,7 @@ class Days{
         .then(days => {
             days.forEach(day => this.days.push(new Day(day)))
         })
-        .then(() => this.render())
+        .then(() => this.boundRender())
     }
 
     render(){
@@ -88,7 +85,8 @@ class Days{
         let i
         
         for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
+          coll[i].addEventListener("click", function(e) {
+            e.preventDefault()
             this.classList.toggle("active")
             let content = this.nextElementSibling
             if (content.style.maxHeight){
@@ -98,9 +96,8 @@ class Days{
             }
           })
         }
-
-        this.renderDeleteEventListeners()
-
+        const method = this.renderDeleteEventListeners.bind(this)
+        method()
     }
 
 
