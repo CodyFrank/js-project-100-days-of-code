@@ -4,11 +4,11 @@ class DaysAdapter {
         this.baseUrl = "http://localhost:3000/api/v1/days"
     }
 
-    getDays() {
+    async getDays() {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
-    createDay(value){
+    async createDay(value){
         
         const day = {
             date: value
@@ -22,7 +22,7 @@ class DaysAdapter {
         }).then(res => res.json())
     }
 
-    updateDay(value, id){
+    async updateDay(value, id){
                 
         const day = {
             date: value
@@ -33,6 +33,15 @@ class DaysAdapter {
                 'content-type': 'application/json',
             },
             body: JSON.stringify({ day })
+        }).then(res => res.json())
+    }
+
+    async deleteDay(id){
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+            },
         }).then(res => res.json())
     }
 
