@@ -26,7 +26,11 @@ class Days{
         for (i = 0; i < deleteButtons.length; i++) {
             deleteButtons[i].addEventListener("click", function(e) {
                 e.preventDefault()
-                this.adapter.deleteDay(e.target.dataset.id)
+                const day = e.target
+                const dayIndex = this.days.indexOf(day)
+                this.adapter.deleteDay(day.dataset.id)
+                .then(this.days.splice(dayIndex, 1))
+                .then(() => this.boundRender())
             }.bind(this))
         }
     }
