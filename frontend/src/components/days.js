@@ -9,9 +9,8 @@ class Days{
     initBindingsAndEventListeners(){
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
-        this.body = document.querySelector("body")
-        this.submitButton = document.getElementById('submit')
         this.boundRender = this.render.bind(this)
+        this.messagesDiv = document.querySelector('.messages')
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
         this.daysContainer.addEventListener('keydown', this.updateDay.bind(this))
@@ -46,9 +45,11 @@ class Days{
 
     handleDayClick(e){
         const div = e.target
+        console.log(div.innerText)
         div.contentEditable = true
         div.focus()
         div.classList.add("editable")
+        this.messagesDiv.innerHTML = `<h3>${div.innerText} is not saved</h3><h4>please press 'enter' key to save</h4>`
     }
 
 
