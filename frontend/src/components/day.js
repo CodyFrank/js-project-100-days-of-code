@@ -13,16 +13,16 @@ class Day{
 
     renderChallenge(){
         return this.challenges.map(c => {
-            return `<li><p>${c.question}</p>
-            <p>${c.description}</p>
-            <p>${c.solution}</p></li>`
+            return `<li><p class="challenge">${c.question}</p>
+            <p class="challenge">${c.description}</p>
+            <p class="challenge">${c.solution}</p></li>`
         })
     }
 
     renderDay(){
         return `<button class="collapsible day-button" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
-        <div class="challenges">
-        <ul>${this.renderChallenge().join("")}</ul>
+        <div class="challenges challenge">
+        <ol class="challenge">${this.renderChallenge().join("")}</ol>
           <button class='delete-button' data-id=${this.id}>Delete</button>
         </div>`
     }

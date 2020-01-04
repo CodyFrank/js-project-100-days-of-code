@@ -39,7 +39,12 @@ class Days{
           const id = div.dataset.id
           div.contentEditable = false
           div.classList.remove("editable")
-          this.adapter.updateDay(newValue, id)
+          if(div.classList.value.includes("challenge")){
+            console.log("you are trying to update a challenge")
+        }else if(div.classList.value.includes("day-button")){
+            console.log("you are trying to update a day")
+            // this.adapter.updateDay(newValue, id)
+          }
           this.messagesDiv.innerHTML = ``
           alert(`${newValue} saved`)
         }
