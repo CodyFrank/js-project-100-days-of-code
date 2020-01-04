@@ -10,10 +10,11 @@ class Days{
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         this.body = document.querySelector("body")
+        this.submitButton = document.getElementById('submit')
         this.boundRender = this.render.bind(this)
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
-        this.body.addEventListener('blur', this.updateDay.bind(this), true)
+        this.daysContainer.addEventListener('blur', this.updateDay.bind(this), true)
     }
 
     deleteDay(e){
@@ -36,6 +37,7 @@ class Days{
     }
 
     updateDay(e){
+        e.preventDefault()
         const div = e.target
         const newValue = div.innerText
         const id = div.dataset.id
@@ -61,12 +63,12 @@ class Days{
     }
 
     newDate(){
-        const date = new Date()
-        const dd = date.getDate()
+        let date = new Date()
+        let dd = date.getDate()
         if (dd < 10){
             dd = "0" + dd
         }
-        const mm = date.getMonth() + 1
+        let mm = date.getMonth() + 1
         if (mm < 10){
             mm = "0" + mm
         }
