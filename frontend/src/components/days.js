@@ -14,7 +14,7 @@ class Days{
         this.boundRender = this.render.bind(this)
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
-        this.daysContainer.addEventListener('blur', this.updateDay.bind(this), true)
+        this.daysContainer.addEventListener('keydown', this.updateDay.bind(this))
     }
 
     renderDeleteEventListeners(){
@@ -33,13 +33,15 @@ class Days{
     }
 
     updateDay(e){
-        e.preventDefault()
-        const div = e.target
-        const newValue = div.innerText
-        const id = div.dataset.id
-        div.contentEditable = false
-        div.classList.remove("editable")
-        this.adapter.updateDay(newValue, id)
+        if (e.keyCode === 13){
+          e.preventDefault()
+          const div = e.target
+          const newValue = div.innerText
+          const id = div.dataset.id
+          div.contentEditable = false
+          div.classList.remove("editable")
+          this.adapter.updateDay(newValue, id)
+        }
     }
 
     handleDayClick(e){
