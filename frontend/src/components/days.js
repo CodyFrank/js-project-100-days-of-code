@@ -37,6 +37,7 @@ class Days{
     }
 
     updateDay(e){
+        console.log(e.target)
         e.preventDefault()
         const div = e.target
         const newValue = div.innerText

@@ -37,3 +37,7 @@ body {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
+  .day-button {
+    background-color: rgb(109, 109, 109);
+  }
