@@ -40,12 +40,13 @@ class Days{
           div.contentEditable = false
           div.classList.remove("editable")
           this.adapter.updateDay(newValue, id)
+          this.messagesDiv.innerHTML = ``
+          alert(`${newValue} saved`)
         }
     }
 
     handleDayClick(e){
         const div = e.target
-        console.log(div.innerText)
         div.contentEditable = true
         div.focus()
         div.classList.add("editable")
