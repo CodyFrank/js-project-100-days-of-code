@@ -11,24 +11,18 @@ class Day{
         this.daysContainer = document.querySelector('div.days-container')
     }
 
-    renderChallengeQuestion(){
-        return this.challenges.map(c => c.question)
-    }
-
-    renderChallengeDescription(){
-        return this.challenges.map(c => c.description)
-    }
-
-    renderChallengeSolution(){
-        return this.challenges.map(c => c.Solution)
+    renderChallenge(){
+        return this.challenges.map(c => {
+            return `<li><p>${c.question}</p>
+            <p>${c.description}</p>
+            <p>${c.solution}</p></li>`
+        })
     }
 
     renderDay(){
         return `<button class="collapsible day-button" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
         <div class="challenges">
-        <p>${this.renderChallengeQuestion()}<p>
-        <p>${this.renderChallengeDescription()}<p>
-        <p>${this.renderChallengeSolution()}<p>
+        <ul>${this.renderChallenge()}</ul>
           <button class='delete-button' data-id=${this.id}>Delete</button>
         </div>`
     }
