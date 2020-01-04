@@ -3,7 +3,7 @@ class Day{
         this.id = dayJSON.id
         this.date = dayJSON.date
         this.challenges = []
-        dayJSON.challenges.forEach(c => this.challenges.push(c))
+        dayJSON.challenges.forEach(c => this.challenges.push(new Challenge(c)))
         this.initBindingsAndEventListeners()
     }
 
