@@ -17,10 +17,6 @@ class Days{
         this.daysContainer.addEventListener('blur', this.updateDay.bind(this), true)
     }
 
-    deleteDay(e){
-        e.preventDefault
-    }
-
     renderDeleteEventListeners(){
         const deleteButtons = document.querySelectorAll('.delete-button')
         let i
@@ -37,7 +33,6 @@ class Days{
     }
 
     updateDay(e){
-        console.log(e.target)
         e.preventDefault()
         const div = e.target
         const newValue = div.innerText
@@ -60,7 +55,7 @@ class Days{
         e.preventDefault()
         this.adapter.createDay(this.newDate())
         .then(day => this.days.push(new Day(day)))
-        this.boundRender()
+        .then(() => this.boundRender())
     }
 
     newDate(){
@@ -103,8 +98,8 @@ class Days{
             }
           })
         }
-        const method = this.renderDeleteEventListeners.bind(this)
-        method()
+        const boundRenderDeleteEventListeners = this.renderDeleteEventListeners.bind(this)
+        boundRenderDeleteEventListeners()
     }
 
 
