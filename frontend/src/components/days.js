@@ -128,7 +128,9 @@ class Days{
           })
         }
         const boundRenderDayDeleteEventListeners = this.renderDayDeleteEventListeners.bind(this)
+        const boundRenderChallengeDeleteEventListeners = this.renderChallengeDeleteEventListeners.bind(this)
         boundRenderDayDeleteEventListeners()
+        boundRenderChallengeDeleteEventListeners()
     }
 
 
