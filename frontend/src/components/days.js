@@ -17,8 +17,8 @@ class Days{
         this.daysContainer.addEventListener('keydown', this.updateDay.bind(this))
     }
 
-    renderDeleteEventListeners(){
-        const deleteButtons = document.querySelectorAll('.delete-button')
+    renderDayDeleteEventListeners(){
+        const deleteButtons = document.querySelectorAll('.day-delete-button')
         let i
         for (i = 0; i < deleteButtons.length; i++) {
             deleteButtons[i].addEventListener("click", function(e) {
@@ -27,6 +27,21 @@ class Days{
                 const dayIndex = this.days.indexOf(day)
                 this.dayAdapter.deleteDay(day.dataset.id)
                 .then(this.days.splice(dayIndex, 1))
+                .then(() => this.boundRender())
+            }.bind(this))
+        }
+    }
+
+    renderChallengeDeleteEventListeners(){
+        const deleteButtons = document.querySelectorAll('.challenge-delete-button')
+        let i
+        for (i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener("click", function(e) {
+                e.preventDefault()
+                const challenge = e.target
+                const challengeIndex = this.days.indexOf(day)
+                this.challengeAdapter.deleteChallenge(challenge.dataset.id)
+                .then(this.days.splice(challengeIndex, 1))
                 .then(() => this.boundRender())
             }.bind(this))
         }
@@ -112,8 +127,8 @@ class Days{
             }
           })
         }
-        const boundRenderDeleteEventListeners = this.renderDeleteEventListeners.bind(this)
-        boundRenderDeleteEventListeners()
+        const boundRenderDayDeleteEventListeners = this.renderDayDeleteEventListeners.bind(this)
+        boundRenderDayDeleteEventListeners()
     }
 
 
