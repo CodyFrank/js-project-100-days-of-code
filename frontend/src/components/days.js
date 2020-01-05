@@ -24,7 +24,6 @@ class Days{
             createButtons[i].addEventListener("click", function(e) {
                 e.preventDefault()
                 const day = e.target
-                const dayIndex = this.days.indexOf(day)
                 this.challengeAdapter.createChallenge(day.dataset.id)
                 .then(() => this.boundRender())
             }.bind(this))

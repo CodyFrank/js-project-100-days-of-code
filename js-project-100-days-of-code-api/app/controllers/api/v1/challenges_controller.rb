@@ -29,6 +29,7 @@ class Api::V1::ChallengesController < ApplicationController
     private
 
     def challenge_params
+        binding.pry
         params.require(:challenge).permit(:question, :solution, :description)
     end
 
