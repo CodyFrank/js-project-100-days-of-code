@@ -4,13 +4,8 @@ class Day{
         this.date = dayJSON.date
         this.challenges = []
         dayJSON.challenges.forEach(c => this.challenges.push(new Challenge(c)))
-        this.initBindingsAndEventListeners()
     }
-
-    initBindingsAndEventListeners(){
-        this.daysContainer = document.querySelector('div.days-container')
-    }
-
+// render html for each days challenge
     renderChallenge(){
         return this.challenges.map(c => {
             return `<li data-id='${c.id}'>
@@ -20,7 +15,7 @@ class Day{
             <button data-dayId='${c.dayId}' class='challenge-delete-button' data-id=${c.id}>Delete Challenge</button>`
         })
     }
-
+// renders html for a day
     renderDay(){
         return `<button class="collapsible day-button" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
         <div class="challenges challenge">

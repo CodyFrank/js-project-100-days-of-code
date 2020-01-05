@@ -2,7 +2,7 @@ class ChallengesAdapter {
     constructor(){
         this.baseUrl = "http://localhost:3000/api/v1/challenges"
     }
-
+// updates solution sends patch request to /challenges/id "gets handled in backend as update action" 
     async updateChallengeSolution(value, id){
         const challenge = {
             solution: value
@@ -15,7 +15,7 @@ class ChallengesAdapter {
             body: JSON.stringify({ challenge })
         }).then(res => res.json())
     }
-
+// updates description sends patch request to /challenges/id "gets handled in backend as update action"
     async updateChallengeDescription(value, id){
         const challenge = {
             description: value
@@ -28,7 +28,7 @@ class ChallengesAdapter {
             body: JSON.stringify({ challenge })
         }).then(res => res.json())
     }
-
+//  updates question sends patch request to /challenges/id "gets handled in backend as update action"
     async updateChallengeQuestion(value, id){
         const challenge = {
             question: value
@@ -41,7 +41,7 @@ class ChallengesAdapter {
             body: JSON.stringify({ challenge })
         }).then(res => res.json())
     }
-
+// sends delete request to /challenges/id "gets handled in backend as delete action"
     async deleteChallenge(id){
         return fetch(`${this.baseUrl}/${id}`, {
             method: 'DELETE',
@@ -50,7 +50,8 @@ class ChallengesAdapter {
             },
         }).then(res => res.json())
     }
-
+    
+// sends post request to /days "gets handled in backend as create action"
     async createChallenge(dayId){
         const challenge = {
             day_id: `${dayId}`,
