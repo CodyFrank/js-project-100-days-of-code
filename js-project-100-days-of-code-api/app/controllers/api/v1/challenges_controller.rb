@@ -5,11 +5,17 @@ class Api::V1::ChallengesController < ApplicationController
         if challenge.save
             render json: ChallengeSerializer.new(challenge).to_serialized_json
         else
-            render json: {message: "Creating that challenge failed"}
+            render json: {message: "Creating that Challenge failed"}
         end
     end
 
     def update
+        challenge = Challenge.find_by(id: params[:id])
+        if challenge.update(challenge_params)
+            render json: ChallengeSerializer.new(challenge).to_serialized_json
+        else
+            render json: {message: "Cannot update that Challenge"}
+        end
     end
 
     def destroy
