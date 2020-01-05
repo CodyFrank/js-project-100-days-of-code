@@ -42,5 +42,14 @@ class ChallengesAdapter {
         }).then(res => res.json())
     }
 
+    async deleteChallenge(id){
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+            },
+        }).then(res => res.json())
+    }
+
 
 }

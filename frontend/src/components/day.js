@@ -13,10 +13,11 @@ class Day{
 
     renderChallenge(){
         return this.challenges.map(c => {
-            return `<li data-id='${c.id}'><p data-id='${c.id}' class="challenge question">${c.question}</p>
+            return `<li data-id='${c.id}'>
+            <p data-id='${c.id}' class="challenge question">${c.question}</p>
             <p data-id='${c.id}' class="challenge description">${c.description}</p>
             <p data-id='${c.id}' class="challenge solution">${c.solution}</p></li>
-            <button class='challenge-delete-button' data-id=${c.id}>Delete Challenge</button>`
+            <button data-dayId='${c.dayId}' class='challenge-delete-button' data-id=${c.id}>Delete Challenge</button>`
         })
     }
 

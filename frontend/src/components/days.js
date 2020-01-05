@@ -39,9 +39,10 @@ class Days{
             deleteButtons[i].addEventListener("click", function(e) {
                 e.preventDefault()
                 const challenge = e.target
-                const challengeIndex = this.days.indexOf(day)
+                const day = this.days.find(d => d.id == challenge.dataset.dayid)
+                const challengeIndex = day.challenges.indexOf(challenge)
                 this.challengeAdapter.deleteChallenge(challenge.dataset.id)
-                .then(this.days.splice(challengeIndex, 1))
+                .then(day.challenges.splice(challengeIndex, 1))
                 .then(() => this.boundRender())
             }.bind(this))
         }
