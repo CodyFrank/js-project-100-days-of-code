@@ -41,7 +41,7 @@ class Days{
           div.contentEditable = false
           div.classList.remove("editable")
           if(div.classList.value.includes("challenge")){
-              if(div.classList.value.includes("solution")){}
+              if(div.classList.value.includes("solution")){
                 this.challengeAdapter.updateChallengeSolution(newValue, id)
               }else if(div.classList.value.includes("description")){
                 this.challengeAdapter.updateChallengeDescription(newValue, id)
