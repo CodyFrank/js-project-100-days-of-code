@@ -19,6 +19,11 @@ class Api::V1::ChallengesController < ApplicationController
     end
 
     def destroy
+        if challenge = Challenge.find_by(id: params[:id]).destroy
+            render json: {challengeId: challenge.id}
+        else
+            render json: {message: "Cannot delete that Day"}
+        end
     end
 
     private
