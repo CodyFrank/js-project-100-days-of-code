@@ -13,9 +13,9 @@ class Day{
 
     renderChallenge(){
         return this.challenges.map(c => {
-            return `<li><p class="challenge">${c.question}</p>
-            <p class="challenge">${c.description}</p>
-            <p class="challenge">${c.solution}</p></li>`
+            return `<li data-id='${c.id}'><p data-id='${c.id}' class="challenge">${c.question}</p>
+            <p data-id='${c.id}' class="challenge">${c.description}</p>
+            <p data-id='${c.id}' class="challenge">${c.solution}</p></li>`
         })
     }
 

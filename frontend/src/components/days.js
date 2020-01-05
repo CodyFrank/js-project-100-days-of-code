@@ -41,9 +41,14 @@ class Days{
           div.contentEditable = false
           div.classList.remove("editable")
           if(div.classList.value.includes("challenge")){
-            console.log("you are trying to update a challenge")
-            
-        }else if(div.classList.value.includes("day-button")){
+              if(div.classList.value.includes("solution")){}
+                this.challengeAdapter.updateChallengeSolution(newValue, id)
+              }else if(div.classList.value.includes("description")){
+                this.challengeAdapter.updateChallengeDescription(newValue, id)
+              }else if(div.classList.value.includes("question")){
+                this.challengeAdapter.updateChallengeQuestion(newValue, id)
+              }
+          }else if(div.classList.value.includes("day-button")){
             this.dayAdapter.updateDay(newValue, id)
           }
           this.messagesDiv.innerHTML = ``
