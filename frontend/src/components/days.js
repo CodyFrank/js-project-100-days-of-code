@@ -25,6 +25,7 @@ class Days{
                 e.preventDefault()
                 const day = e.target
                 this.challengeAdapter.createChallenge(day.dataset.id)
+                .then((c) => this.days.find(d => d.id === c.day_id).challenges.push(new Challenge(c)))
                 .then(() => this.boundRender())
             }.bind(this))
         }
@@ -143,8 +144,10 @@ class Days{
         }
         const boundRenderDayDeleteEventListeners = this.renderDayDeleteEventListeners.bind(this)
         const boundRenderChallengeDeleteEventListeners = this.renderChallengeDeleteEventListeners.bind(this)
+        const boundRenderCreateChallengeEventListeners = this.renderCreateChallengeEventListeners.bind(this)
         boundRenderDayDeleteEventListeners()
         boundRenderChallengeDeleteEventListeners()
+        boundRenderCreateChallengeEventListeners()
     }
 
 
@@ -152,3 +155,4 @@ class Days{
 
 
 
+// this.days.find(d => d.id === c.day_id
