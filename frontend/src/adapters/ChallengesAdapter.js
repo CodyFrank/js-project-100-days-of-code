@@ -16,5 +16,31 @@ class ChallengesAdapter {
         }).then(res => res.json())
     }
 
+    async updateChallengeDescription(value, id){
+        const challenge = {
+            description: value
+        }
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ challenge })
+        }).then(res => res.json())
+    }
+
+    async updateChallengeQuestion(value, id){
+        const challenge = {
+            question: value
+        }
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ challenge })
+        }).then(res => res.json())
+    }
+
 
 }
