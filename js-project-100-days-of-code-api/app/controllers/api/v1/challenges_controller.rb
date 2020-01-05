@@ -1,17 +1,12 @@
 class Api::V1::ChallengesController < ApplicationController
-    def index
-    end
-
-    def show
-    end
-
-    def new
-    end
 
     def create
-    end
-
-    def edit
+        challenge = Challenge.new(challenge_params)
+        if challenge.save
+            render json: ChallengeSerializer.new(challenge).to_serialized_json
+        else
+            render json: {message: "Creating that challenge failed"}
+        end
     end
 
     def update
