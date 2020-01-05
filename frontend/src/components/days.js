@@ -17,6 +17,20 @@ class Days{
         this.daysContainer.addEventListener('keydown', this.updateDay.bind(this))
     }
 
+    renderCreateChallengeEventListeners(){
+        const createButtons = document.querySelectorAll('.new-challenge-button')
+        let i
+        for (i = 0; i < createButtons.length; i++) {
+            createButtons[i].addEventListener("click", function(e) {
+                e.preventDefault()
+                const day = e.target
+                const dayIndex = this.days.indexOf(day)
+                this.challengeAdapter.createChallenge(day.dataset.id)
+                .then(() => this.boundRender())
+            }.bind(this))
+        }
+    }
+
     renderDayDeleteEventListeners(){
         const deleteButtons = document.querySelectorAll('.day-delete-button')
         let i
