@@ -1,7 +1,8 @@
 class Days{
     constructor(){
         this.days = []
-        this.adapter = new DaysAdapter()
+        this.dayAdapter = new DaysAdapter()
+        this.challengeAdapter = new ChallengesAdapter()
         this.fetchAndLoadDays()
         this.initBindingsAndEventListeners()
     }
@@ -24,7 +25,7 @@ class Days{
                 e.preventDefault()
                 const day = e.target
                 const dayIndex = this.days.indexOf(day)
-                this.adapter.deleteDay(day.dataset.id)
+                this.dayAdapter.deleteDay(day.dataset.id)
                 .then(this.days.splice(dayIndex, 1))
                 .then(() => this.boundRender())
             }.bind(this))
@@ -41,8 +42,9 @@ class Days{
           div.classList.remove("editable")
           if(div.classList.value.includes("challenge")){
             console.log("you are trying to update a challenge")
+            
         }else if(div.classList.value.includes("day-button")){
-            this.adapter.updateDay(newValue, id)
+            this.dayAdapter.updateDay(newValue, id)
           }
           this.messagesDiv.innerHTML = ``
           alert(`${newValue} saved`)
@@ -61,7 +63,7 @@ class Days{
 
     createDay(e){
         e.preventDefault()
-        this.adapter.createDay(this.newDate())
+        this.dayAdapter.createDay(this.newDate())
         .then(day => this.days.push(new Day(day)))
         .then(() => this.boundRender())
     }
@@ -81,8 +83,7 @@ class Days{
     }
 
     fetchAndLoadDays(){
-        this.adapter
-        .getDays()
+        this.dayAdapter.getDays()
         .then(days => {
             days.forEach(day => this.days.push(new Day(day)))
         })
