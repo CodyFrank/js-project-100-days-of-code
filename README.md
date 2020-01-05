@@ -26,3 +26,5 @@ This application is currently not deployed and no plans for employement currentl
 * gem 'rack-cors' (Cross-Origin Resource Sharing)
 * *love* from a Flatiron School Student
 
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
