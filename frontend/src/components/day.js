@@ -24,6 +24,7 @@ class Day{
     renderDay(){
         return `<button class="collapsible day-button" data-id='${this.id}' id='dateid${this.id}'>${this.date}</button>
         <div class="challenges challenge">
+        <button data-id='${this.id} class='new-challenge-button'>New Challenge</button>
         <button class='day-delete-button' data-id=${this.id}>Delete Day</button>
         <ol class="challenge">${this.renderChallenge().join("")}</ol>
         </div>`
