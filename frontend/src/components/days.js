@@ -42,8 +42,7 @@ class Days{
           if(div.classList.value.includes("challenge")){
             console.log("you are trying to update a challenge")
         }else if(div.classList.value.includes("day-button")){
-            console.log("you are trying to update a day")
-            // this.adapter.updateDay(newValue, id)
+            this.adapter.updateDay(newValue, id)
           }
           this.messagesDiv.innerHTML = ``
           alert(`${newValue} saved`)
