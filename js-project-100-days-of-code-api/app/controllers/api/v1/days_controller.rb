@@ -4,13 +4,13 @@ class Api::V1::DaysController < ApplicationController
         render json: DaysSerializer.new(days).to_serialized_json
     end
 
-    def show
-        if day = Day.find_by(id: params[:id])
-            render json: DaysSerializer.new(day).to_serialized_json
-        else
-            render json: {message: "Cannot find a Day with that ID"}
-        end
-    end
+    # def show
+    #     if day = Day.find_by(id: params[:id])
+    #         render json: DaysSerializer.new(day).to_serialized_json
+    #     else
+    #         render json: {message: "Cannot find a Day with that ID"}
+    #     end
+    # end
 
     def create
         day = Day.new(day_params)
