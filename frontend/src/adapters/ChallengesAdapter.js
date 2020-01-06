@@ -3,7 +3,7 @@ class ChallengesAdapter {
         this.baseUrl = "http://localhost:3000/api/v1/challenges"
     }
 // updates solution sends patch request to /challenges/id "gets handled in backend as update action" 
-    async updateChallengeSolution(value, id){
+    updateChallengeSolution(value, id){
         const challenge = {
             solution: value
         }
@@ -16,7 +16,7 @@ class ChallengesAdapter {
         }).then(res => res.json())
     }
 // updates description sends patch request to /challenges/id "gets handled in backend as update action"
-    async updateChallengeDescription(value, id){
+    updateChallengeDescription(value, id){
         const challenge = {
             description: value
         }
@@ -29,7 +29,7 @@ class ChallengesAdapter {
         }).then(res => res.json())
     }
 //  updates question sends patch request to /challenges/id "gets handled in backend as update action"
-    async updateChallengeQuestion(value, id){
+    updateChallengeQuestion(value, id){
         const challenge = {
             question: value
         }
@@ -42,7 +42,7 @@ class ChallengesAdapter {
         }).then(res => res.json())
     }
 // sends delete request to /challenges/id "gets handled in backend as delete action"
-    async deleteChallenge(id){
+    deleteChallenge(id){
         return fetch(`${this.baseUrl}/${id}`, {
             method: 'DELETE',
             headers: {
@@ -52,7 +52,7 @@ class ChallengesAdapter {
     }
     
 // sends post request to /days "gets handled in backend as create action"
-    async createChallenge(dayId){
+    createChallenge(dayId){
         const challenge = {
             day_id: `${dayId}`,
             question: "Write your challenge question here!",
