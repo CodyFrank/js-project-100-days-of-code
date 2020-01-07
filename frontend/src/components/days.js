@@ -18,6 +18,9 @@ class Days{
         // adds click event listeners to editable content
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
         this.daysContainer.addEventListener('keyup', this.updateDay.bind(this))
+        this.renderDayDeleteEventListeners = this.renderDayDeleteEventListeners.bind(this)
+        this.renderChallengeDeleteEventListeners = this.renderChallengeDeleteEventListeners.bind(this)
+        this.renderCreateChallengeEventListeners = this.renderCreateChallengeEventListeners.bind(this)
     }
 
     // adds the event listener to all of the create challenge buttons
@@ -209,14 +212,10 @@ class Days{
           })
         }
         // end drop animations
-        // binds this to methods that render event listeners on rendered content
-        const boundRenderDayDeleteEventListeners = this.renderDayDeleteEventListeners.bind(this)
-        const boundRenderChallengeDeleteEventListeners = this.renderChallengeDeleteEventListeners.bind(this)
-        const boundRenderCreateChallengeEventListeners = this.renderCreateChallengeEventListeners.bind(this)
-        // calls bound methods to render event listeners
-        boundRenderDayDeleteEventListeners()
-        boundRenderChallengeDeleteEventListeners()
-        boundRenderCreateChallengeEventListeners()
+        // renders event listeners to the now loaded content
+        this.renderDayDeleteEventListeners()
+        this.renderChallengeDeleteEventListeners()
+        this.renderCreateChallengeEventListeners()
     }
 
 
