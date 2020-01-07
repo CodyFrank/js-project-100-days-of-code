@@ -74,12 +74,14 @@ class Days{
                 // finds a day
                 const day = this.days.find(d => d.id == challenge.dataset.dayid)
                 const challengeIndex = day.challenges.indexOf(challenge)
-                // tells adapter to fire a fetch request 
+                // tells adapter to fire a fetch request returns promise
                 this.challengeAdapter.deleteChallenge(challenge.dataset.id)
                 // removes the deleted challenge from earlier found day's challenge array
-                .then(day.challenges.splice(challengeIndex, 1))
-                // calls render to update what is shown
-                .then(() => this.boundRender())
+                .then(() => {
+                  day.challenges.splice(challengeIndex, 1)
+                  // calls render to update what is shown
+                  this.boundRender()
+                })
             }.bind(this))
         }
     }
@@ -135,7 +137,7 @@ class Days{
     // handles the click on create day button to create a new day
     createDay(e){
         e.preventDefault()
-        // tells adapter to send fetch request
+        // tells adapter to send fetch request returns promise
         this.dayAdapter.createDay(this.newDate())
         // instantiates new day and pushes it to day array
         .then(day => {
