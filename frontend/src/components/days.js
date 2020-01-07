@@ -167,14 +167,17 @@ class Days{
 
     // gets called on instantition tells the days adapter to fetch days and calls render
     fetchAndLoadDays(){
-        // tells adapter to send get fetch request
+        // tells adapter to send get fetch request returns promise
         this.dayAdapter.getDays()
+        // handles that promise
         .then(days => {
             // itterates days array and creates new day object for each then saves them in days array
-            days.forEach(day => this.days.push(new Day(day)))
+            days.forEach(day => {
+              this.days.push(new Day(day))
+                      // renders page to update content
+              this.boundRender()
+            })
         })
-        // renders page to update content
-        .then(() => this.boundRender())
     }
 
     // renders content to page
