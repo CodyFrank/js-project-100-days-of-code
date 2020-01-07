@@ -51,12 +51,14 @@ class Days{
                 e.preventDefault()
                 const day = e.target
                 const dayIndex = this.days.indexOf(day)
-                  // adapter sends fetch request to backend
+                  // adapter sends fetch request to backend returns promise
                 this.dayAdapter.deleteDay(day.dataset.id)
                 // removes delete content from the days array
-                .then(this.days.splice(dayIndex, 1))
+                .then(() => {
+                  this.days.splice(dayIndex, 1)
+                  this.boundRender()
+                })
                  // calls render to update what is shown
-                .then(() => this.boundRender())
             }.bind(this))
         }
     }
