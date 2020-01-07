@@ -12,7 +12,7 @@ class Days{
         this.daysContainer = document.querySelector('div.days-container')
         this.dayButton = document.getElementById("new-day-button")
         // binds this to render method allowing the same "this" in all render calls
-        this.boundRender = this.render.bind(this)
+        this.render = this.render.bind(this)
         this.messagesDiv = document.querySelector('.messages')
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         // adds click event listeners to editable content
@@ -36,7 +36,7 @@ class Days{
                 .then((c) => {
                   this.days.find(d => d.id === c.day_id).challenges.push(new Challenge(c))
                   // calls render to update what is shown
-                  this.boundRender()
+                  this.render()
                 })
             }.bind(this))
         }
@@ -59,7 +59,7 @@ class Days{
                 .then(() => {
                   this.days.splice(dayIndex, 1)
                   // calls render to update what is shown
-                  this.boundRender()
+                  this.render()
                 })
             }.bind(this))
         }
@@ -84,7 +84,7 @@ class Days{
                 .then(() => {
                   day.challenges.splice(challengeIndex, 1)
                   // calls render to update what is shown
-                  this.boundRender()
+                  this.render()
                 })
             }.bind(this))
         }
@@ -147,7 +147,7 @@ class Days{
         .then(day => {
           this.days.push(new Day(day))
           // rerenders to update content
-          this.boundRender()
+          this.render()
         })
     }
 
@@ -183,7 +183,7 @@ class Days{
             days.forEach(day => {
               this.days.push(new Day(day))
                       // renders page to update content
-              this.boundRender()
+              this.render()
             })
         })
     }
