@@ -17,7 +17,7 @@ class Days{
         this.dayButton.addEventListener('click', this.createDay.bind(this))
         // adds click event listeners to editable content
         this.daysContainer.addEventListener('dblclick', this.handleDayClick.bind(this))
-        this.daysContainer.addEventListener('keyup', this.updateDay.bind(this))
+        this.daysContainer.addEventListener('keydown', this.updateDay.bind(this))
         this.renderDayDeleteEventListeners = this.renderDayDeleteEventListeners.bind(this)
         this.renderChallengeDeleteEventListeners = this.renderChallengeDeleteEventListeners.bind(this)
         this.renderCreateChallengeEventListeners = this.renderCreateChallengeEventListeners.bind(this)
