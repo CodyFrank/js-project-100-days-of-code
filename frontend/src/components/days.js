@@ -33,9 +33,11 @@ class Days{
                 // adapter sends fetch request to backend
                 this.challengeAdapter.createChallenge(day.dataset.id)
                 // instatiates a new challenge object and adds that to the found day's challenges array
-                .then((c) => this.days.find(d => d.id === c.day_id).challenges.push(new Challenge(c)))
-                // calls render to update what is shown
-                .then(() => this.boundRender())
+                .then((c) => {
+                  this.days.find(d => d.id === c.day_id).challenges.push(new Challenge(c))
+                  // calls render to update what is shown
+                  this.boundRender()
+                })
             }.bind(this))
         }
     }
@@ -56,9 +58,9 @@ class Days{
                 // removes delete content from the days array
                 .then(() => {
                   this.days.splice(dayIndex, 1)
+                  // calls render to update what is shown
                   this.boundRender()
                 })
-                 // calls render to update what is shown
             }.bind(this))
         }
     }
