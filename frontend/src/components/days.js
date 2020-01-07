@@ -138,9 +138,11 @@ class Days{
         // tells adapter to send fetch request
         this.dayAdapter.createDay(this.newDate())
         // instantiates new day and pushes it to day array
-        .then(day => this.days.push(new Day(day)))
-        // rerenders to update content
-        .then(() => this.boundRender())
+        .then(day => {
+          this.days.push(new Day(day))
+          // rerenders to update content
+          this.boundRender()
+        })
     }
 
     // grabs the current date and formats it to be used when a day is created
