@@ -188,7 +188,7 @@ class Days{
                       // renders page to update content
               this.render()
             })
-        })
+      })
     }
 
     // renders content to page

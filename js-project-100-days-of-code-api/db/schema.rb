@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_000216) do
+ActiveRecord::Schema.define(version: 2020_01_09_134000) do
 
   create_table "challenges", force: :cascade do |t|
     t.text "question"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_000216) do
     t.integer "day_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating", limit: 1
   end
 
   create_table "days", force: :cascade do |t|
