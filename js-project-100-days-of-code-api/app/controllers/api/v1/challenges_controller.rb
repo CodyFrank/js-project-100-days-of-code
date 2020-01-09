@@ -29,7 +29,7 @@ class Api::V1::ChallengesController < ApplicationController
     private
 
     def challenge_params
-        params.require(:challenge).permit(:question, :solution, :description, :day_id)
+        params.require(:challenge).permit(:question, :solution, :description, :day_id, :rating)
     end
 
 end

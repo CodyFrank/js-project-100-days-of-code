@@ -2,6 +2,23 @@ class ChallengesAdapter {
     constructor(){
         this.baseUrl = "http://localhost:3000/api/v1/challenges"
     }
+
+
+    // updates solution sends patch request to /challenges/id "gets handled in backend as update action" 
+    updateChallengeRating(value, id){
+        const challenge = {
+            rating: value
+        }
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ challenge })
+        }).then(res => res.json())
+    }
+
+
 // updates solution sends patch request to /challenges/id "gets handled in backend as update action" 
     updateChallengeSolution(value, id){
         const challenge = {

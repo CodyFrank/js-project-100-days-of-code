@@ -12,7 +12,7 @@ class Day{
             <p data-id='${c.id}' class="challenge question">${c.question}</p>
             <p data-id='${c.id}' class="challenge description">${c.description}</p>
             <p data-id='${c.id}' class="challenge solution">${c.solution}</p></li>
-            <p data-id='${c.id}' class="challenge rating">did you like this challenge? ${c.rating}</p>
+            <p>did you like this challenge?</p><p data-id='${c.id}' class="challenge rating">${c.rating}</p>
             <button data-dayId='${c.dayId}' class='challenge-delete-button' data-id=${c.id}>Delete Challenge</button>`
         })
     }

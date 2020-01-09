@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_09_134000) do
     t.integer "day_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rating", limit: 1
+    t.string "rating"
   end
 
   create_table "days", force: :cascade do |t|

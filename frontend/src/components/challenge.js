@@ -7,7 +7,4 @@ class Challenge{
         this.solution = challengeJSON.solution
         this.rating = challengeJSON.rating
     }
-
-
-
 }

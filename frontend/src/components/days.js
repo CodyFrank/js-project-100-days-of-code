@@ -115,6 +115,8 @@ class Days{
                 this.challengeAdapter.updateChallengeDescription(newValue, id)
               }else if(div.classList.value.includes("question")){
                 this.challengeAdapter.updateChallengeQuestion(newValue, id)
+              }else if(div.classList.value.includes("rating")){
+                this.challengeAdapter.updateChallengeRating(newValue, id)
               }
             //   handles day update
           }else if(div.classList.value.includes("day-button")){
