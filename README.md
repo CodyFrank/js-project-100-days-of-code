@@ -15,7 +15,7 @@ This application is currently not deployed and no plans for employement currentl
 2. Run bundle install
 3. Run migrations (rake db:migrate)
 4. Seed the database (rake db:seed)
-5. Start a server with rails (rails server or rails s)
+5. Start a server with rails (rails server or rails s) **note change directory into js-project-100-days-of-code-api first with cd js-project-100-days-of-code-api command**
 6. Open index.html in browser
 5. Have fun and love learning coding
 
